@@ -54,18 +54,14 @@ public class NotaActivity extends AppCompatActivity {
         //Instanciamos lista de notas
         notas = new NoteList();
 
-
         recyclerView = findViewById(R.id.recyclerView); //Se obtiene el view desde lek layout
         layoutManager = new LinearLayoutManager(this);
 
         callAdapter();
 
-
         fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //Boton de agregar notas
-
-
                 String titulo = edtTitulo.getText().toString();
                 String nota = edtNota.getText().toString();
                 if (!titulo.equals("") && !nota.equals("")) {
@@ -86,7 +82,6 @@ public class NotaActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(NotaActivity.this, "Fill all the blanks", Toast.LENGTH_SHORT).show();
                 }
-
 
             }
         });
@@ -128,7 +123,6 @@ public class NotaActivity extends AppCompatActivity {
         });
 
     }
-
 
     public static int binSearch(Nota [] arreglo, char val){ //Busqueda binaria
         return binSearchRec(arreglo, val, 0, arreglo.length - 1);
