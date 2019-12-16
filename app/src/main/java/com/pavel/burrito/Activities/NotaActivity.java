@@ -2,6 +2,7 @@ package com.pavel.burrito.Activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -50,6 +51,7 @@ public class NotaActivity extends AppCompatActivity {
         fabOrder = findViewById(R.id.fabOrder);
         fabSearch = findViewById(R.id.fabSearch);
         fabSearch.setEnabled(false);
+        //ColorStateList csl = new ColorStateList(new int[][]{new int[0]}, new int[]{Color});
 
         //Instanciamos lista de notas
         notas = new NoteList();
@@ -98,6 +100,8 @@ public class NotaActivity extends AppCompatActivity {
                 callAdapter();
 
                 fabSearch.setEnabled(true);
+                ColorStateList csl = new ColorStateList(new int[][]{new int[0]}, new int[]{0xff8000});
+                fabSearch.setBackgroundTintList(csl);
 
             }
         });
