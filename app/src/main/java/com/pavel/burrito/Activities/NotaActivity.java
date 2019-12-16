@@ -195,9 +195,9 @@ public class NotaActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        adaptador.notifyItemRemoved(position);
         temp = count;
         count = position;
-        //countNotas--;
     }
 
     public void cancelar() {
@@ -211,7 +211,8 @@ public class NotaActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void callAdapter() { //Funcion para crear el adaptador
+    public void callAdapter (){ //Funcion para crear el adaptador
+
         adaptador = new AdaptadorRe(notas, R.layout.cardview, new AdaptadorRe.OnItemClickListener() {
             @Override
             public void click(Nota nota, int position) { //La interface que se hizo desde el adaptador
@@ -240,11 +241,13 @@ public class NotaActivity extends AppCompatActivity {
             }
 
             @Override
-            public void clickLong(Nota nota, int position) {
+            public void clickLong(Nota nota, final int position) {
                 Toast.makeText(NotaActivity.this , "NOT EVEN HAPPEN" , Toast.LENGTH_SHORT).show();
             }
         });
+
         recyclerView.setHasFixedSize(true);
+
         recyclerView.setLayoutManager(layoutManager); //
         recyclerView.setAdapter(adaptador);
     }
